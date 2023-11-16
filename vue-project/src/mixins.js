@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default {
-    method:{
+    methods:{
         async $api(url, method, data) {
             return (await axios({
                 method: method,
