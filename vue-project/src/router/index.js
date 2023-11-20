@@ -4,6 +4,12 @@ import DataBinding from '../views/DataBinding.vue'
 import DataBindingList2 from '../views/DataBindingList2.vue'
 import NestedComponent from '../views/NestedComponent.vue'
 import ParentComponent from '../views/ParentComponent.vue'
+import CalculatorComponent from '../views/CalculatorComponent.vue'
+import CompositionAPI from '../views/CompositionAPI.vue'
+import CompositionAPI2 from '../views/CompositionAPI2.vue'
+import CompositionAPI3 from '../views/CompositionAPI3.vue'
+import CompositionAPI4 from '../views/CompositionAPI4.vue'
+import CompositionAPIProvide from '../views/CompositionAPIProvide.vue'
 
 const routes = [
   {
@@ -38,6 +44,36 @@ const routes = [
     path: '/parentcomponent',
     name: 'ParentComponent',
     component: ParentComponent
+  },
+  {
+    path: '/calculatorComponent',
+    name: 'CalculatorComponent',
+    component: CalculatorComponent
+  },
+  {
+    path: '/compositionAPI',
+    name: 'CompositionAPI',
+    component: CompositionAPI
+  },
+  {
+    path: '/compositionAPI2',
+    name: 'CompositionAPI2',
+    component: CompositionAPI2
+  },
+  {
+    path: '/compositionAPI3',
+    name: 'CompositionAPI3',
+    component: CompositionAPI3
+  },
+  {
+    path: '/compositionAPI4',
+    name: 'CompositionAPI4',
+    component: CompositionAPI4
+  },
+  {
+    path: '/compositionAPIProvide',
+    name: 'CompositionAPIProvide',
+    component: CompositionAPIProvide
   }
 ]
 
