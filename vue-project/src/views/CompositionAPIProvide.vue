@@ -14,7 +14,7 @@ export default {
   setup(){
     console.log("parent setup()");
     provide('title1','Vue.js 프로젝트'); //provide 함수를 통해서 전달할 키(key), 값(value) 설정
-  },
+  },          
   beforeCreate() {console.log('parent beforeCreate()')},
   created() {console.log('parent created()')},
   beforeMount() {console.log('parent beforeMount()')},
