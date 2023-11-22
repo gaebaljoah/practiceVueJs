@@ -4,7 +4,7 @@
         <div style="width: 800px; margin: 0;">
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
           <title>Insert title here</title>
-          <router-link to="/"><h1>Lime Sample Web HomePage</h1></router-link>
+          <router-link to="/"><h1>Lemon Sample Web HomePage</h1></router-link>
         </div>
       </header>
       <div class="contents" style="width: 800px; margin: 0;">
@@ -14,7 +14,7 @@
           </div>
         </aside>
         <section>
-          <router-view></router-view>
+           <router-view></router-view> 
         </section>
       </div>
     <footer-component></footer-component>
