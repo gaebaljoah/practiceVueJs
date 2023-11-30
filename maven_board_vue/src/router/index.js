@@ -5,6 +5,7 @@ import RegPost from "../views/RegPostComponent.vue";
 import DetailPost from "../views/DetailPostComponent.vue"
 const routes =  [
   {
+    name: 'Home',
     path: '/',
     redirect: '/home'
   },

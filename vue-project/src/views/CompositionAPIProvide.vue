@@ -1,11 +1,12 @@
 <template>
-    <CompositionAPIInject />
+    <composition-api-inject />
 </template>
 <script>
 import { provide } from 'vue'; //provide 추가
 import CompositionAPIInject from './CompositionAPIInject'
+import CompositionAPIInject from './CompositionAPIInject.vue';
 export default {
-  components: {CompositionAPIInject},
+  components: {CompositionAPIInjectCompositionAPIInject},
   data() {
     return {
       sampleData: ''

@@ -22,34 +22,51 @@ export default {
 
   },
   methods: {
-    regPost(){
+    // regPost(){
 
-      const freeBoardDtoJson = {
+    //   const freeBoardDtoJson = {
+    //     'name' : this.name,
+    //     'title' : this.title,
+    //     'content' : this.content,
+    //   }
+    //   const freeBoardDto = JSON.stringify(freeBoardDtoJson)   
+    //   console.log(freeBoardDto);
+    //   //axios는 'data'를 query로 변환해주지 않는다고 한다. 'data'란 개발자 도구에서 봤던 dictionary를 말한다. 
+    //   //axios에서 매개변수로 변환해주지 않으니 스프링에서는 freeBoardDtoJson라는 매개변수를 못받았던 것이다!
+    //   //axios.post('http://localhost:6005/insertFreeBoard.ino',null,{params : freeBoardDtoJson}) //매개변수에 일치 시킬 거면 이렇게 사용,
+    //   //아래는 requestBody 요청 본문에 데이터를 삽입하는 방법
+    //   axios.post('http://localhost:6005/insertFreeBoard.ino',freeBoardDtoJson)
+    //   .then(function(response){
+    //     if(response.status==200){
+    //       alert("게시글 작성이 완료되었습니다");
+    //       console.log(response);
+    //       this.$router.push({ name: 'Home' });
+    //       }
+    //     }
+    //   )
+    // }
+
+    async regPost(){
+      try {
+        const freeBoardDtoJson = {
         'name' : this.name,
         'title' : this.title,
         'content' : this.content,
-      }
-      const freeBoardDto = JSON.stringify(freeBoardDtoJson)   
-      console.log(freeBoardDto);
-
-      axios.post('http://localhost:6005/insertFreeBoard.ino',null,{params : freeBoardDtoJson})
-      .then(function(response){
-        if(response.status==200){
-          console.log(response);
-          }
         }
-      )
-
-
-
-      // axios.post("http://localhost:6005/insertFreeBoard.ino",JSON.stringify(freeBoardDto))
-      // .then((res) => {
-      //   console.log("data..?"+res.data); // 서버에서 받은 데이터
-      //   console.log("status..?"+res.status); // HTTP 상태 코드
-      //   console.log("statusText..?"+res.statusText); // HTTP 상태 메시지
-      //   console.log("headers..?"+res.headers); // 응답 헤더
-      //   console.log("config..?"+res.config); // Axios 요청에 사용된 설정 객체
-      // });
+        //axios는 'data'를 query로 변환해주지 않는다고 한다. 'data'란 개발자 도구에서 봤던 dictionary를 말한다. 
+        //axios에서 매개변수로 변환해주지 않으니 스프링에서는 freeBoardDtoJson라는 매개변수를 못받았던 것이다!
+        //axios.post('http://localhost:6005/insertFreeBoard.ino',null,{params : freeBoardDtoJson}) //매개변수에 일치 시킬 거면 이렇게 사용,
+        //아래는 requestBody 요청 본문에 데이터를 삽입하는 방법
+        const res = await axios.post('http://localhost:6005/insertFreeBoard.ino',freeBoardDtoJson)
+        if(res.status==200){
+          alert("게시글 작성이 완료되었습니다");
+          console.log(res);
+          this.$router.push({ name: 'Home' });
+        }
+      }catch (error) {
+        console.log(error);
+           
+      }
     }
   }
 }

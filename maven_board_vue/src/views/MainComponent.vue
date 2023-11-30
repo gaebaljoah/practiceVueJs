@@ -15,17 +15,17 @@
         <div style="width: 150px; float: left;" v-text="item.regdate"></div>
         <hr style="width: 600px">
       </div>
-      <form id="searchForm">
+      <form id="searchForm" ref="searchForm">
         <input type="hidden" id="page" name="page" value="1">
-        <select name="searchKey">
+        <select name="searchKey" v-model="searchKey">
           <option value="title">제목</option>
           <option value="name">작성자</option>
         </select>  
-        <input type="text" name="searchValue" value="">
-        <button type="button" onclick="search()" id="searchBtn" class="btn-search"> 검색</button>
+        <input type="text" name="searchValue" v-model="searchValue">
+        <button type="button" @click="search" id="searchBtn" class="btn-search"> {{searchValue}}</button>
       </form>
       <div>
-        <paginationComponent/>
+        
       </div>
     </div>
   </section>
@@ -33,26 +33,33 @@
 
 <script>
 import axios from "axios";
-import PaginationComponent from './layout/PaginationComponent.vue';
+//import PaginationComponent from './layout/PaginationComponent.vue';
 // import {plusCalculator} from './common.js'; //reactive 추가
 export default {
-  components: { PaginationComponent },
+  //components: { PaginationComponent },
   name: 'mainComponent',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
-      , list : []
+      list : [],
+      searchKey : null,
+      searchValue: null
     }
   },
   methods:{
-    async search () {
-        const res = await axios.post ("http://localhost:6005/freeBoardList",{});
-        console.log(res)
+    async search(){
+      
+      try { 
+        const res =  await axios.get("http://localhost:6005/freeBoardList/"+this.searchKey+"/"+this.searchValue);
         this.list = res.data.list;
+      } catch (error) {
+        console.log(error);
+      }
     }
+
   },
   mounted() {
-    console.log("mount 되고나서 search()함수를 탄다")
+    //console.log("mount 되고나서 search()함수를 탄다")
+    console.log(this.$route)
     this.search();
   }
 }
